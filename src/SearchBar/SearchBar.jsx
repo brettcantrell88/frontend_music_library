@@ -7,7 +7,7 @@ const SearchBar = ({value, onChange}) => {
     console.log(searchKeyword);
     return ( 
         <div>
-            <label>Search Song</label>
+            <form>Search Song</form>
             <input type='search' value={value} onChange={event => onChange(event.target.value)}/>
         <button>Search</button>
         </div>

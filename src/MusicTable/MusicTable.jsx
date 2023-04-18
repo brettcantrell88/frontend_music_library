@@ -10,18 +10,18 @@ const MusicTable = ({songs}) => {
         const [filteredSongs, setFilteredSongs] = useState(songs);
         useEffect(() => {
             setFilteredSongs(songs)
-        }, [songs]);
+        }, []);
 
         const handleSearch = () => {
-            const newFilteredSongs = songs.filter((songs) => songs.title.toLowerCase().includes(searchKeyword.toLowerCase()),);
+            let newFilteredSongs = songs.filter((songs) => songs.title.toLowerCase().includes(searchKeyword.toLowerCase()),);
             setFilteredSongs(newFilteredSongs);
+            return handleSearch;
         };
         const songRow = songs.map((song) => {
             return <DisplaySongs song={song}/>
         });
 
         return(<section id='music'>
-            <h1>Music Library</h1>
             <SearchBar value={searchKeyword} onChange={setSearchKeyword} />
             <table>
                 <thead>

@@ -1,10 +1,11 @@
 import axios from "axios";
 import React from "react";
+import './DisplaySongs.css'
 
 
 const DisplaySongs = (song) => {
     const handleDelete = async () => {
-        const url = 'http://127.0.0.1:8000/api/music/${song.id}/'
+        const url = 'http://127.0.0.1:8000/api/music/'
         const response = await axios.delete(url, song)
     }
     return ( 
