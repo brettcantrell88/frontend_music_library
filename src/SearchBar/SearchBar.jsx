@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 
 
 
-const SearchBar = ({value, onChange}) => {
-    const [searchKeyword, setSearchKeyword] = useState('');
-    console.log(searchKeyword);
+const SearchBar = ({handleSearch, value, setSearchKeyword}) => {
+    
+    console.log(value);
     return ( 
         <div>
-            <form>Search Song</form>
-            <input type='search' value={value} onChange={event => onChange(event.target.value)}/>
-        <button>Search</button>
+            <form onSubmit={(e) => handleSearch(e)}>Search Song</form>
+            <input type='search' value={value} onChange={event => setSearchKeyword(event.target.value)}/>
+        <button type='submit'>Search</button>
         </div>
      );
 };

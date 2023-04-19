@@ -6,23 +6,23 @@ import DisplaySongs from '../DisplaySongs/DisplaySongs';
 
 
 const MusicTable = ({songs}) => {
-        const {searchKeyword, setSearchKeyword} = useState('');
+        const [searchKeyword, setSearchKeyword] = useState('');
         const [filteredSongs, setFilteredSongs] = useState(songs);
         useEffect(() => {
             setFilteredSongs(songs)
         }, []);
 
-        const handleSearch = () => {
-            let newFilteredSongs = songs.filter((songs) => songs.title.toLowerCase().includes(searchKeyword.toLowerCase()),);
+        const handleSearch = (e) => {
+            e.preventDefault();
+            let newFilteredSongs = songs.filter((song) => song.title.toLowerCase().includes(searchKeyword.toLowerCase()));
             setFilteredSongs(newFilteredSongs);
-            return handleSearch;
         };
         const songRow = songs.map((song) => {
             return <DisplaySongs song={song}/>
         });
 
         return(<section id='music'>
-            <SearchBar value={searchKeyword} onChange={setSearchKeyword} />
+            <SearchBar handleSearch={handleSearch} value={searchKeyword} setSearchKeyword={setSearchKeyword} />
             <table>
                 <thead>
                     <tr>
@@ -36,6 +36,7 @@ const MusicTable = ({songs}) => {
                 <tbody>
                     {songRow}
                 </tbody>
+                
             </table>
         </section>)
 }
