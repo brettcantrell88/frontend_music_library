@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import DisplaySongs from './Components/DisplaySongs/DisplaySongs';
+import AddNewSong from './Components/AddNewSong';
 import './App.css';
 
 
@@ -9,6 +10,7 @@ function App() {
   return (
     <div>
       <DisplaySongs parentSongs={songs} />
+      <AddNewSong />
     </div>
     )
   }
