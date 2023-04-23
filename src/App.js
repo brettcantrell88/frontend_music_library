@@ -1,16 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import DisplaySongs from './Components/DisplaySongs/DisplaySongs';
+import React, { useState } from 'react';
+import NavBar from './Components/NavBar/NavBar';
 import AddNewSong from './Components/AddNewSong';
+import SearchBar from './Components/SearchBar/SearchBar';
 import './App.css';
+
 
 
 function App() {
   const [songs, setSongs] = useState([])
+
+  function addNewSong(song){
+    let tempSongs = [...songs, song];
+
+    setSongs(tempSongs);
+  }
+
   
   return (
     <div>
-      <DisplaySongs parentSongs={songs} />
-      <AddNewSong />
+      <NavBar />
+      <AddNewSong addNewSongProperty={addNewSong}/>
+      <SearchBar searchedSongProperty={songs} />
     </div>
     )
   }
