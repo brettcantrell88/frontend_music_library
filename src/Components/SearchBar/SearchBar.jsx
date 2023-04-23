@@ -16,7 +16,7 @@ const SearchBar = () => {
 
 
     return ( 
-        <form>
+        <form onSubmit={searchForSong}>
             <div className='container'>
                 <h4>Search Music Library</h4>
                 <input type='text' onChange={(event) => setSongSearch(event.target.value)}/>

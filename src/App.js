@@ -19,8 +19,8 @@ function App() {
   return (
     <div>
       <NavBar />
-      <AddNewSong addNewSongProperty={addNewSong}/>
       <SearchBar searchedSongProperty={songs} />
+      <AddNewSong addNewSongProperty={addNewSong}/>
     </div>
     )
   }
