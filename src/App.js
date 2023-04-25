@@ -2,18 +2,23 @@ import React, { useEffect, useState } from 'react';
 import NavBar from './Components/NavBar/NavBar';
 import AddNewSong from './Components/AddNewSong';
 import SearchBar from './Components/SearchBar/SearchBar';
+import DisplaySongs from './Components/DisplaySongs/DisplaySongs';
 import './App.css';
 import axios from 'axios';
 
 
 
+
 function App() {
   const [songs, setSongs] = useState([]);
+  
 
   useEffect(() => {
     
     getAllSongs();
   }, []);
+
+  // TODO: Write a filtering function to take user input and filter songs
 
   
   async function getAllSongs(){
@@ -22,26 +27,27 @@ function App() {
     setSongs(response.data)
   };
   async function addNewSong(newSong){
-    let response = await axios.post('http://127.0.0.1:8000/api/music/', newSong);
+    let response = await axios.post('http://127.0.0.1:8000/api/music/'+ newSong);
     console.log(response.data);
     if(response.status === 201){
       await getAllSongs();
     }
+  
   };
-  async function deleteSong(song){
-    let response = await axios.delete('http://127.0.0.1:8000/api/music/', song);
-    if(response.status === 200){
-      return getAllSongs();
-    }
-  };
+  // async function deleteSong(song){
+  //   let response = await axios.delete('http://127.0.0.1:8000/api/music/'+ song);
+  //   if(response.status === 200){
+  //     return getAllSongs();
+  //   }
+  // };
   
   
   return (
     <div>
       <div><NavBar/></div>
-      <div><SearchBar displaySong = {songs} deleteSongProp = {deleteSong}/></div>
+      <div><SearchBar  /></div>
       <div className='content-wrap'><AddNewSong addNewSongProperty={addNewSong}/></div>
-      
+      <div><DisplaySongs parentSongs={songs}/></div>
     </div>
     )
   }
