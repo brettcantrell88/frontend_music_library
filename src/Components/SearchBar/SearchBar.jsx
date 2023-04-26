@@ -8,7 +8,7 @@ const SearchBar = (props) => {
     let searchedSong = {
         query: searchSong,
     };
-    props.songFilter(searchedSong);
+    props.songFilter.filter(searchedSong);
   }
 
   return (
