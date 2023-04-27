@@ -1,23 +1,24 @@
 .border-box {
+    display: flex;
     border: 1px;
     border-style: solid;
     border-color: black;
     border-radius: 10px;
+    background-color: burlywood;
     margin: 1em;
     padding: 1em;
-    background-color: white;
   }
   
-  .box {
+  .content-wrap {
+    display: flex;
     border: 1px;
     border-style: solid;
-    border-color: white;
-    background-color: white;
-  
+    border-color: black;
+    border-radius: 10px;
+    background-color: orchid;
+    margin: 1em;
+    padding: 1em;
   }
   
-  .app {
-    background-color: #E2F2EE;
-    margin: 100px - 50px;
-    
-  }
+  
+  

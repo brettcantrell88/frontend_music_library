@@ -4,8 +4,8 @@ import './NavBar.css'
 
 const NavBar = () => {
     return (
-      <div>
-        <h3 style={{ margin: "1em", cursor: "pointer" }}>
+      <div className='nav-bar'>
+        <h3>
           Music
           <small className="text-muted">Library</small>
         </h3>

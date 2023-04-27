@@ -1,0 +1,10 @@
+.border-box {
+    display: grid;
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+    background-color: rgb(160, 222, 135);
+    margin: 1em;
+    padding: .5em;
+  }

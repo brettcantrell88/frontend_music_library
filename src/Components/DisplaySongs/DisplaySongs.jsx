@@ -4,15 +4,17 @@
 
 
 const DisplaySongs = (props) => {
-    
+
   return (
-    <table>
+    <table className="table table-dark">
       <thead>
-        <tr>Title</tr>
-        <tr>Artist</tr>
-        <tr>Album</tr>
-        <tr>Release Date</tr>
-        <tr>Genre</tr>
+        <tr>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Album</th>
+            <th>Release Date</th>
+            <th>Genre</th>
+        </tr>
       </thead>
       <tbody>
         {props.parentSongs.map((song) => {

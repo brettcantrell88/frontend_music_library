@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import NavBar from './Components/NavBar/NavBar';
-import AddNewSong from './Components/AddNewSong';
+import AddNewSongs from './Components/AddNewSongs/AddNewSongs';
 import SearchBar from './Components/SearchBar/SearchBar';
 import DisplaySongs from './Components/DisplaySongs/DisplaySongs';
 import './App.css';
@@ -43,11 +43,27 @@ function App() {
   
   
   return (
-    <div>
-      <div><NavBar/></div>
-      <div><SearchBar  /></div>
-      <div className='content-wrap'><AddNewSong addNewSongProperty={addNewSong}/></div>
-      <div><DisplaySongs parentSongs={songs}/></div>
+    <div className='container-fluid'>
+      <div className='row'>
+          <div className='border-box'>
+            <NavBar/>
+          </div>
+        <div>
+          <SearchBar songs={songs} setSongs={setSongs}/>
+        </div>
+        <div className='col-md-6'>
+          <div className='content-wrap'>
+            <div>
+              <AddNewSongs addNewSongProperty={addNewSong}/>
+            </div>
+          </div>
+        </div>
+        <div className='col-md-6'>
+          <div>
+            <DisplaySongs parentSongs={songs}/>
+          </div>
+        </div>
+      </div>
     </div>
     )
   }
